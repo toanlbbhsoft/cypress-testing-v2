@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 const PRODUCT_BASE_API_URL = process.env.REACT_APP_BASE_API_URL + '/products';
-const About: React.FC = () => {
+const Products: React.FC = () => {
   const [products, setProducts] = useState([]);
   const [productToAdd, setProductToAdd] = useState({name: '', price: 0});
   useEffect(() => {
@@ -10,6 +10,7 @@ const About: React.FC = () => {
   const getList = async () => {
     await axios.get(PRODUCT_BASE_API_URL).then((res) => {
       setProducts(res.data);
+      // setProducts(undefined)
     });
   };
   const handleAdd = async () => {
@@ -52,7 +53,7 @@ const About: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((item) => (
+          {products?.map((item) => (
             <tr key={item.id}>
               <td>{item.name}</td>
               <td>{item.price}</td>
@@ -67,4 +68,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About;
+export default Products;

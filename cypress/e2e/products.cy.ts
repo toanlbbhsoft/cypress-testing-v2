@@ -59,3 +59,27 @@ describe('Product page', () => {
     });
   });
 });
+
+describe('Product page empty data ', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/products');
+
+    cy.intercept('GET', '**/products', {
+      body: [],
+    }).as('emptyData');
+
+    cy.intercept('GET', '**/products', {
+      statusCode: 404,
+    }).as('apiError');
+
+    cy.wait(1500);
+  });
+
+  it('Product list empty: []', () => {
+    cy.wait('@emptyData').then(({response}) => {
+      cy.log('response', response);
+    });
+
+    cy.get('table tbody').should('have.text', '');
+  });
+});
