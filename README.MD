@@ -1,12 +1,5 @@
 # demo-cypress
-
-
-This project was generated with [superplate](https://github.com/pankod/superplate).
-
-## Getting Started
-
-superplate is a Next.js all-in-one project generator. Create your project with the tools you need without spending hours on setting them up.
-
+[Docs]](https://docs.cypress.io/)
 ## Available Scripts
 
 ### Running the development server.
@@ -26,11 +19,6 @@ superplate is a Next.js all-in-one project generator. Create your project with t
 ```bash
     yarn start
 ```
-
-## Learn More
-
-To learn more about **superplate**, please check out the [Documentation](https://github.com/pankod/superplate).
-
 
 ### **CSS / styled-jsx**
 
